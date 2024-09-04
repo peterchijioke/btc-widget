@@ -41,7 +41,6 @@ const BtcWidget = () => {
     } catch (error) {}
   };
 
-  // Just a simple comment
   useEffect(() => {
     if (data?.error) {
       alert(data.message);
