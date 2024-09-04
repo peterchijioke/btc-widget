@@ -33,13 +33,20 @@ const BtcWidget = () => {
   );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    if (value === "" || /^\d*\.?\d*$/.test(value)) {
-      if (btcPrice) {
-        setUsdAmount(value);
-        setBtcAmount(value ? (Number(value) / btcPrice).toFixed(8) : "--");
+    try {
+      const { value } = e.target;
+      if (value === "" || /^\d*\.?\d*$/.test(value)) {
+        if (btcPrice) {
+          if (Number(value) > 100000000) {
+            setUsdAmount("100000000");
+            setBtcAmount((100000000 / btcPrice).toFixed(8));
+          } else {
+            setUsdAmount(value);
+            setBtcAmount(value ? (Number(value) / btcPrice).toFixed(8) : "--");
+          }
+        }
       }
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
