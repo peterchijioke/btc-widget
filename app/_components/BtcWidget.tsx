@@ -81,6 +81,7 @@ const BtcWidget = () => {
         </div>
         <Input
           type="number"
+          max={100000000}
           placeholder="Enter USD amount"
           value={usdAmount}
           onChange={handleInputChange}

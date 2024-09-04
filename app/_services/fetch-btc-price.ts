@@ -1,4 +1,3 @@
-'use server'
 import axios from "axios";
 /**
  * fetchBtcPrice is an asynchronous function that fetches the current Bitcoin price
@@ -15,7 +14,7 @@ import axios from "axios";
       const response = await axios.get(
         "https://api.coingecko.com/api"+url
       );
-
+console.log(response.data,"==========")
       return {
         data:response.data,error:false
       }
