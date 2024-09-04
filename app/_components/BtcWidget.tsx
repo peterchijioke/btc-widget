@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import { fetchBtcPrice } from "../_services/fetch-btc-price";
 import useSWR from "swr";
