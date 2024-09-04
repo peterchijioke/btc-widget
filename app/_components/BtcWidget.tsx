@@ -7,6 +7,13 @@ import { Loader } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+/**
+ * BtcWidget is a React component that fetches the current Bitcoin price
+ * and allows users to convert a USD amount to Bitcoin. It also displays
+ * the last updated timestamp for the Bitcoin price.
+ * @BtcWidget
+ */
+
 const BtcWidget = () => {
   const { data, isLoading } = useSWR(
     "/v3/simple/price?ids=bitcoin&vs_currencies=usd",
