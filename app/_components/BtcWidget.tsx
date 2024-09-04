@@ -19,9 +19,7 @@ const BtcWidget = () => {
     "/v3/simple/price?ids=bitcoin&vs_currencies=usd",
     fetchBtcPrice
   );
-  const [btcPrice, setBtcPrice] = useState<any>(
-    data?.data?.bitcoin.usd ?? undefined
-  );
+  const [btcPrice, setBtcPrice] = useState<any>(data?.data?.bitcoin.usd);
   const [usdAmount, setUsdAmount] = useState("");
   const [btcAmount, setBtcAmount] = useState("--");
   const [lastUpdatedDate, setLastUpdatedDate] = useState(
@@ -83,7 +81,6 @@ const BtcWidget = () => {
         </div>
         <Input
           type="number"
-          max={100000000}
           placeholder="Enter USD amount"
           value={usdAmount}
           onChange={handleInputChange}
