@@ -45,6 +45,8 @@ const BtcWidget = () => {
   useEffect(() => {
     if (data?.error) {
       alert(data.message);
+    } else {
+      setBtcPrice(data?.data?.bitcoin.usd);
     }
   }, [data]);
 
@@ -67,7 +69,13 @@ const BtcWidget = () => {
         <div className=" grid gap-5">
           <div className=" grid grid-cols-2">
             <span className="font-semibold"> Current Price:</span>
-            <span>${btcPrice ? btcPrice?.toLocaleString() : "--"} USD</span>
+            <span>
+              $
+              {data?.data?.bitcoin.usd
+                ? data?.data?.bitcoin?.usd?.toLocaleString()
+                : "--"}{" "}
+              USD
+            </span>
           </div>
 
           <div className=" grid grid-cols-2 ">
