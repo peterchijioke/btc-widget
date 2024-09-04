@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchBtcPrice } from "../_services/fetch-btc-price";
 import useSWR from "swr";
-import { Loader } from "lucide-react";
+import { Bitcoin, BitcoinIcon, Loader } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { format } from "date-fns";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -87,8 +87,8 @@ const BtcWidget = () => {
           maxLength={12}
           className="w-full p-2 text-lg "
         />
-        <div className="text-lg">
-          BTC Equivalent: <strong>{btcAmount}</strong>
+        <div className="text-lg ">
+          BTC: <strong>{btcAmount}</strong>
         </div>
       </CardContent>
     </Card>
