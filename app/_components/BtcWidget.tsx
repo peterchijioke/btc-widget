@@ -36,13 +36,8 @@ const BtcWidget = () => {
       const { value } = e.target;
       if (value === "" || /^\d*\.?\d*$/.test(value)) {
         if (btcPrice) {
-          if (Number(value) > 100000000) {
-            setUsdAmount("100000000");
-            setBtcAmount((100000000 / btcPrice).toFixed(8));
-          } else {
-            setUsdAmount(value);
-            setBtcAmount(value ? (Number(value) / btcPrice).toFixed(8) : "--");
-          }
+          setUsdAmount(value);
+          setBtcAmount(value ? (Number(value) / btcPrice).toFixed(8) : "--");
         }
       }
     } catch (error) {}
@@ -88,6 +83,7 @@ const BtcWidget = () => {
         </div>
         <Input
           type="number"
+          max={100000000}
           placeholder="Enter USD amount"
           value={usdAmount}
           onChange={handleInputChange}
