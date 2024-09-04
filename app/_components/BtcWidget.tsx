@@ -25,8 +25,11 @@ const BtcWidget = () => {
   );
   const [usdAmount, setUsdAmount] = useState("");
   const [btcAmount, setBtcAmount] = useState("--");
-  const [lastUpdated, setLastUpdated] = useState(
-    format(new Date(), "dd/MM/yyyy, HH:mm:ss") ?? "--"
+  const [lastUpdatedDate, setLastUpdatedDate] = useState(
+    format(new Date(), "dd MMMM yyyy") ?? "--"
+  );
+  const [lastUpdatedTime, setLastUpdatedTime] = useState(
+    format(new Date(), "h:mm a") ?? "--"
   );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,16 +59,26 @@ const BtcWidget = () => {
   }
 
   return (
-    <Card className="max-w-md mx-auto p-6 border border-gray-300 rounded-lg bg-gray-50 text-center ">
+    <Card className="max-w-md mx-auto p-6 border border-gray-300 rounded-lg bg-gray-50 ">
       <CardHeader>
         <CardTitle>Bitcoin Price Converter</CardTitle>
       </CardHeader>
       <CardContent className=" grid gap-5">
-        <div className="text-lg mb-2">
-          <span className=" font-semibold"> Current Price:</span> $
-          {btcPrice ? btcPrice?.toLocaleString() : "--"} USD
+        <div className=" grid gap-5">
+          <div className=" grid grid-cols-2">
+            <span className="font-semibold"> Current Price:</span>
+            <span>${btcPrice ? btcPrice?.toLocaleString() : "--"} USD</span>
+          </div>
+
+          <div className=" grid grid-cols-2 ">
+            <span className="font-semibold"> Last Updated:</span>
+            <span>{lastUpdatedDate}</span>
+          </div>
+          <div className=" grid grid-cols-2">
+            <span className="font-semibold">Time:</span>
+            <span>{lastUpdatedTime}</span>
+          </div>
         </div>
-        <div className="text-lg mb-2">Last Updated: {lastUpdated}</div>
         <Input
           type="number"
           placeholder="Enter USD amount"
