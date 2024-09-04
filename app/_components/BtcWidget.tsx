@@ -5,6 +5,7 @@ import { fetchBtcPrice } from "../_services/fetch-btc-price";
 import useSWR from "swr";
 import { Loader } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { format } from "date-fns";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 /**
@@ -25,7 +26,7 @@ const BtcWidget = () => {
   const [usdAmount, setUsdAmount] = useState("");
   const [btcAmount, setBtcAmount] = useState("--");
   const [lastUpdated, setLastUpdated] = useState(
-    new Date().toLocaleString() ?? "--"
+    format(new Date(), "dd/MM/yyyy, HH:mm:ss") ?? "--"
   );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
