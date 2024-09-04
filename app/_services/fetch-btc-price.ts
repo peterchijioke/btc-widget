@@ -9,12 +9,13 @@ import axios from "axios";
  *   it includes an error message.
  */
 
- export const fetchBtcPrice = async (url:string) => {
+ export const fetchBtcPrice = async (url:string): Promise<{ data?: any; error: boolean; message?: string; }> => {
     try {
+      
       const response = await axios.get(
         "https://api.coingecko.com/api"+url
       );
-console.log(response.data,"==========")
+console.log(response.data,"========")
       return {
         data:response.data,error:false
       }
